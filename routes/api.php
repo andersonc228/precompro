@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CuentaController;
+use App\Http\Controllers\PedidoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,15 @@ Route::group([
         Route::post('/client', [CuentaController::class, 'create']);
         Route::delete('/client/{cuenta}', [CuentaController::class, 'delete']);
         Route::put('/client', [CuentaController::class, 'update']);
+    });
+
+    Route::group([
+        'prefix' => 'pedido',
+    ], function () {
+        Route::get('/{pedido}', [PedidoController::class, 'get']);
+        Route::post('/', [PedidoController::class, 'create']);
+        Route::delete('/{pedido}', [PedidoController::class, 'delete']);
+        Route::patch('/{pedido}', [PedidoController::class, 'update']);
     });
 });
 

@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
-use App\Repositories\CuentaRepository;
-use App\Repositories\CuentaRepositoryInterface;
+use App\Repositories\Cuenta\CuentaRepository;
+use App\Repositories\Cuenta\CuentaRepositoryInterface;
+use App\Repositories\Pedido\PedidoRepository;
+use App\Repositories\Pedido\PedidoRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -14,6 +16,7 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->bind(CuentaRepositoryInterface::class, CuentaRepository::class);
+        $this->app->bind(PedidoRepositoryInterface::class, PedidoRepository::class);
     }
 
     /**

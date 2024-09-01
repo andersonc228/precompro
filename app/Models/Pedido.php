@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Pedido extends Model
 {
@@ -13,9 +13,9 @@ class Pedido extends Model
     use HasFactory;
 
 
-    public function pedidos(): HasMany
+    public function cuenta(): BelongsTo
     {
-        return $this->hasMany(Cuenta::class);
+        return $this->belongsTo(Cuenta::class, 'id');
     }
 
 }

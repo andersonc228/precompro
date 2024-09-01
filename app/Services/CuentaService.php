@@ -3,11 +3,13 @@
 namespace App\Services;
 
 
+use App\Exceptions\CuentaNotCreatedException;
 use App\Exceptions\CuentaNotExistException;
 use App\Exceptions\CuentaNotUpdateException;
 use App\Exceptions\EmptyEmailException;
 use App\Models\Cuenta;
-use App\Repositories\CuentaRepositoryInterface;
+use App\Repositories\Cuenta\CuentaRepositoryInterface;
+
 
 class CuentaService
 {
@@ -54,7 +56,7 @@ class CuentaService
         $cuentaNueva = $this->cuentaRepository->create($nombre, $email, $telefono);
 
         if (!$cuentaNueva) {
-            throw new CuentaNotExistException(self::CUENTA_NOT_CREATED);
+            throw new CuentaNotCreatedException(self::CUENTA_NOT_CREATED);
         }
     }
 
