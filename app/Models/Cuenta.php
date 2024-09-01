@@ -14,6 +14,7 @@ class Cuenta extends Model
     protected $fillable = [
         'nombre',
         'telefono',
-        'email'
+        'email',
+        'activo',
     ];
 }

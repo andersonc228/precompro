@@ -16,13 +16,22 @@ class CuentaRepository implements CuentaRepositoryInterface
          return Cuenta::create(['nombre' => $nombre, 'email' => $email, 'telefono' => $telefono]);
     }
 
-    public function update(): void
+    public function update(Cuenta $cuenta): bool
     {
-        // TODO: Implement update() method.
+        return $cuenta->save();
     }
 
-    public function delete(): void
+    public function delete(Cuenta $cuenta): void
     {
-        // TODO: Implement delete() method.
+        $cuenta->update(['activo' => false]);
+    }
+
+    public function getById(int $id, bool $active): ?Cuenta{
+
+        if ($active) {
+            return Cuenta::where('id', '=', $id)->where('activo', '=', true)->first();
+        } else {
+            return Cuenta::where('id', '=', $id)->first();
+        }
     }
 }

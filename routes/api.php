@@ -22,6 +22,8 @@ Route::group([
     ], function () {
         Route::get('/client/{email}', [CuentaController::class, 'get']);
         Route::post('/client', [CuentaController::class, 'create']);
+        Route::delete('/client/{cuenta}', [CuentaController::class, 'delete']);
+        Route::put('/client', [CuentaController::class, 'update']);
     });
 });
 
