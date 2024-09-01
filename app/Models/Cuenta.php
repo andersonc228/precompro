@@ -10,4 +10,10 @@ class Cuenta extends Model
 
     protected $table = 'cuentas';
     use HasFactory;
+
+    protected $fillable = [
+        'nombre',
+        'telefono',
+        'email'
+    ];
 }
