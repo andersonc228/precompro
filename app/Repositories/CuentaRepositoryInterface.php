@@ -2,7 +2,6 @@
 
 namespace App\Repositories;
 
-use App\Entities\CuentaEntity;
 use App\Models\Cuenta;
 
 interface CuentaRepositoryInterface
