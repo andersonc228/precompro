@@ -2,13 +2,13 @@
 
 namespace Database\Seeders;
 
-use App\Models\Cuenta;
+use App\Models\Pedido;
 use Illuminate\Database\Seeder;
 
-class CuentaSeeder extends Seeder
+class PedidosSeeder extends Seeder
 {
     public function run(): void
     {
-        Cuenta::factory()->count(5)->create();
+        Pedido::factory()->count(20)->create();
     }
 }
