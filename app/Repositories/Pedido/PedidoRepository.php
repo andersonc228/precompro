@@ -13,7 +13,7 @@ class PedidoRepository implements PedidoRepositoryInterface
         $returnPedido['cantidad'] = $pedido->catidad;
         $returnPedido['valor'] = $pedido->valor;
         $returnPedido['total'] = $pedido->total;
-        $returnPedido['cuenta'] = $pedido->cuenta->toArray();
+        $returnPedido['cuenta'] = $pedido->cuenta ? $pedido->cuenta->toArray() : null;
 
         return $returnPedido;
     }
