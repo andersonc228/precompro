@@ -21,10 +21,10 @@ Route::group([
     Route::group([
         'prefix' => 'cuenta',
     ], function () {
-        Route::get('/client/{email}', [CuentaController::class, 'get']);
-        Route::post('/client', [CuentaController::class, 'create']);
-        Route::delete('/client/{cuenta}', [CuentaController::class, 'delete']);
-        Route::put('/client', [CuentaController::class, 'update']);
+        Route::get('/{email}', [CuentaController::class, 'get']);
+        Route::post('/', [CuentaController::class, 'create']);
+        Route::delete('/{cuenta}', [CuentaController::class, 'delete']);
+        Route::put('/', [CuentaController::class, 'update']);
     });
 
     Route::group([
