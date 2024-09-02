@@ -1,7 +1,8 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CuentaController;
+use App\Http\Controllers\PedidoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::group([
+    'prefix' => 'v1',
+], function () {
+    Route::group([
+        'prefix' => 'cuenta',
+    ], function () {
+        Route::get('/{email}', [CuentaController::class, 'get']);
+        Route::post('/', [CuentaController::class, 'create']);
+        Route::delete('/{cuenta}', [CuentaController::class, 'delete']);
+        Route::put('/', [CuentaController::class, 'update']);
+    });
 
+    Route::group([
+        'prefix' => 'pedido',
+    ], function () {
+        Route::get('/{pedido}', [PedidoController::class, 'get']);
+        Route::post('/', [PedidoController::class, 'create']);
+        Route::delete('/{pedido}', [PedidoController::class, 'delete']);
+        Route::patch('/{pedido}', [PedidoController::class, 'update']);
+    });
+});
 
 
